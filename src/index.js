@@ -47,8 +47,6 @@ let guessColor = colorrandom.pickColor();
 domQueryStrings.displayRandomColor.textContent = guessColor;
 
 domQueryStrings.buttonNewColor.addEventListener('click', () => {
-  
-  
   // generate new Colors
   colors = colorrandom.generateColors(6);
 
