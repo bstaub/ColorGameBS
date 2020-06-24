@@ -21,20 +21,15 @@ const colors = [
 
 
 class Colorrandom {
-  constructor() {
-    this.colors = null;
-  }
 
   generateColors(anzahl) {
-    const tempArray = [];
+    this.color = [];
     for (let i = 0; i < anzahl; i++) {
       const r = Math.floor(Math.random() * 256);
       const g = Math.floor(Math.random() * 256);
       const b = Math.floor(Math.random() * 256);
-      tempArray.push(`rgb(${r}, ${g}, ${b})`);
+      this.color.push(`rgb(${r}, ${g}, ${b})`);
     }
-    // return tempArray;
-    this.color = tempArray;
     return this.color;
   }
 
@@ -45,23 +40,19 @@ class Colorrandom {
 
 }
 
+// Variables
 const colorrandom = new Colorrandom();
 let colors = colorrandom.generateColors(6);
 let guessColor = colorrandom.pickColor();
-
-
-// let colors = Colorrandom.generateColors(5);
-// let guessColor = Colorrandom.pickColor();
-
-
+domQueryStrings.displayRandomColor.textContent = guessColor;
 
 domQueryStrings.buttonNewColor.addEventListener('click', () => {
+  
+  
   // generate new Colors
-  // colors = Colorrandom.generateColors(5);
   colors = colorrandom.generateColors(6);
 
   // change Display Color to match picket Color!!!!
-  // guessColor = Colorrandom.pickColor();
   guessColor = colorrandom.pickColor();
   
   // show new guessColor
@@ -71,6 +62,7 @@ domQueryStrings.buttonNewColor.addEventListener('click', () => {
     domQueryStrings.square[i].style.backgroundColor = colors[i];
     domQueryStrings.h1Bar.style.backgroundColor = 'black';
   }
+  domQueryStrings.displayResult.textContent = 'Score';
 });
 
 domQueryStrings.square.forEach((item, index) => {
