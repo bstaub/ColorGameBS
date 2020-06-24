@@ -19,52 +19,41 @@ const colors = [
 ];
 */
 
-/*
+
 class Colorrandom {
-  constructor(colorsarray, randomcolor) {
-    this.colorsarray = colorsarray;
-    this.randomcolor = randomcolor;
+  constructor() {
+    this.colors = null;
   }
 
-
-}
-*/
-
-// Function Block
-function generateColors(anzahl) {
-  const tempArray = [];
-  for (let i = 0; i < anzahl; i++) {
-    const r = Math.floor(Math.random() * 256);
-    const g = Math.floor(Math.random() * 256);
-    const b = Math.floor(Math.random() * 256);
-    tempArray.push(`rgb(${r}, ${g}, ${b})`);
+  static generateColors(anzahl) {
+    const tempArray = [];
+    for (let i = 0; i < anzahl; i++) {
+      const r = Math.floor(Math.random() * 256);
+      const g = Math.floor(Math.random() * 256);
+      const b = Math.floor(Math.random() * 256);
+      tempArray.push(`rgb(${r}, ${g}, ${b})`);
+    }
+    return tempArray;
   }
-  return tempArray;
+
+  static pickColor() {
+    const random = Math.floor(Math.random() * colors.length);
+    return colors[random];
+  }
+
 }
-let colors = generateColors(5);
 
 
-
-function pickColor() {
-  const random = Math.floor(Math.random() * colors.length);
-  return colors[random];
-}
-let guessColor = pickColor();
-
-
-
-
-
-
-
+let colors = Colorrandom.generateColors(5);
+let guessColor = Colorrandom.pickColor();
 
 
 
 domQueryStrings.buttonNewColor.addEventListener('click', () => {
   // generate new Colors
-  colors = generateColors(5);
+  colors = Colorrandom.generateColors(5);
   // change Display Color to match picket Color!!!!
-  guessColor = pickColor();
+  guessColor = Colorrandom.pickColor();
   // show new guessColor
   domQueryStrings.displayRandomColor.textContent = guessColor;
   // change color of squares (reset new colors)
@@ -73,8 +62,6 @@ domQueryStrings.buttonNewColor.addEventListener('click', () => {
     domQueryStrings.h1Bar.style.backgroundColor = 'black';
   }
 });
-
-
 
 domQueryStrings.square.forEach((item, index) => {
   item.style.backgroundColor = colors[index];
@@ -95,6 +82,3 @@ domQueryStrings.square.forEach((item, index) => {
     }
   });
 });
-
-
-
