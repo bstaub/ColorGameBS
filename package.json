@@ -12,6 +12,7 @@
     "build-prod": "webpack -p --mode production",
     "server": "browser-sync start --directory --server --files '*.js, *.html, *.css'",
     "start:dev": "webpack-dev-server --mode development --open --watch",
+    "start": "webpack-dev-server --mode development --open --watch",
     "eslint": "npx eslint \"src/**/*.{js,ts}\""
   },
   "dependencies": {

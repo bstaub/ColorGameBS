@@ -1,6 +1,32 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+// Variables
 $primary-color: white;
 $bg: black;
+
+// Font Sizes
 h1 {
   color: $primary-color;
   background-color: $bg;
+  text-align: center;
+}
+
+.container {
+  color: yellow;
+  border: 1px solid black;
+  height: 60vh;
+  margin: 0 auto;
+}
+
+.square {
+  width: 33%;
+  height: 33%;
+  background-color: purple;
+  border: 10px solid white;
+  float: left;
+  border-radius: 30px;
 }
