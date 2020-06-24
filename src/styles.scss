@@ -8,11 +8,29 @@
 $primary-color: white;
 $bg: black;
 
+body {
+  background-color: $bg;
+}
+
 // Font Sizes
 h1 {
   color: $primary-color;
   background-color: $bg;
   text-align: center;
+}
+
+.bar {
+  background-color: white;
+  height: 20px;
+  width: 100%;
+  margin: 40px 0;
+  text-align: center;
+  .newColors{
+    margin-right: 20px;
+  }
+  .score {
+
+  }
 }
 
 .container {
@@ -26,7 +44,7 @@ h1 {
   width: 33%;
   height: 33%;
   background-color: purple;
-  border: 10px solid white;
+  border: 10px solid black;
   float: left;
   border-radius: 30px;
 }
