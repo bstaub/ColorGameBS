@@ -25,7 +25,7 @@ class Colorrandom {
     this.colors = null;
   }
 
-  static generateColors(anzahl) {
+  generateColors(anzahl) {
     const tempArray = [];
     for (let i = 0; i < anzahl; i++) {
       const r = Math.floor(Math.random() * 256);
@@ -33,27 +33,37 @@ class Colorrandom {
       const b = Math.floor(Math.random() * 256);
       tempArray.push(`rgb(${r}, ${g}, ${b})`);
     }
-    return tempArray;
+    // return tempArray;
+    this.color = tempArray;
+    return this.color;
   }
 
-  static pickColor() {
-    const random = Math.floor(Math.random() * colors.length);
-    return colors[random];
+  pickColor() {
+    const random = Math.floor(Math.random() * this.color.length);
+    return this.color[random];
   }
 
 }
 
+const colorrandom = new Colorrandom();
+let colors = colorrandom.generateColors(6);
+let guessColor = colorrandom.pickColor();
 
-let colors = Colorrandom.generateColors(5);
-let guessColor = Colorrandom.pickColor();
+
+// let colors = Colorrandom.generateColors(5);
+// let guessColor = Colorrandom.pickColor();
 
 
 
 domQueryStrings.buttonNewColor.addEventListener('click', () => {
   // generate new Colors
-  colors = Colorrandom.generateColors(5);
+  // colors = Colorrandom.generateColors(5);
+  colors = colorrandom.generateColors(6);
+
   // change Display Color to match picket Color!!!!
-  guessColor = Colorrandom.pickColor();
+  // guessColor = Colorrandom.pickColor();
+  guessColor = colorrandom.pickColor();
+  
   // show new guessColor
   domQueryStrings.displayRandomColor.textContent = guessColor;
   // change color of squares (reset new colors)
