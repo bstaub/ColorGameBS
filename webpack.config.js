@@ -33,6 +33,7 @@ const config = {
     contentBase: path.join(__dirname, 'dist'),
     compress: true,
     port: 9000,
+    // writeToDisk: true,
     watchOptions: { // added autoreload after syntax crash :-)
       aggregateTimeout: 300,
       poll: 1000,

@@ -48,3 +48,18 @@ h1 {
   float: left;
   border-radius: 30px;
 }
+
+button {
+  border: 0;
+  height: 100%;
+}
+
+button:hover {
+  color: white;
+  
+}
+
+button.selected {
+  background-color: blue;
+  color: white;
+}

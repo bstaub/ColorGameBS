@@ -5,7 +5,9 @@ const domQueryStrings = {
   displayRandomColor: document.querySelector('.displayRandomColor'),
   displayResult: document.querySelector('.bar span'),
   h1Bar: document.querySelector('h1'),
-  buttonNewColor: document.querySelector('button.newColors'),
+  buttonNewColor: document.querySelector('button#btnNewColor'),
+  buttonEasy: document.querySelector('button#btnEasy'),
+  buttonHard: document.querySelector('button#btnHard'),
 };
 
 /*
@@ -45,6 +47,21 @@ const colorrandom = new Colorrandom();
 let colors = colorrandom.generateColors(6);
 let guessColor = colorrandom.pickColor();
 domQueryStrings.displayRandomColor.textContent = guessColor;
+
+
+
+// Event Buttons
+
+domQueryStrings.buttonEasy.addEventListener('click', function () {
+  // console.dir(this);
+  this.classList.add('selected');
+  domQueryStrings.buttonHard.classList.remove('selected');
+});
+
+domQueryStrings.buttonHard.addEventListener('click', function () {
+  this.classList.add('selected');
+  domQueryStrings.buttonEasy.classList.remove('selected');
+});
 
 domQueryStrings.buttonNewColor.addEventListener('click', () => {
   // generate new Colors
